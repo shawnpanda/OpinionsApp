@@ -3,5 +3,10 @@ import React, { Component, PropTypes } from 'react'
 import Home from '../components/Home'
 
 
-class HomeContainer extends Component {
+function mapStateToProps(state) {
+  return {
+    ...state
+  }
 }
+
+export default connect(mapStateToProps)(Home)
