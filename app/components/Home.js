@@ -4,34 +4,22 @@ import Swiper from 'react-native-swiper';
 
 
 class Home extends Component {
+  // {this.renderSlide("abc",1)}
+
   renderSlide(topic, i) {
     return (
       <View style={styles.slide} key={i}>
-        <Image
-          style={styles.image}
-          source={{uri: 'https://avatars2.githubusercontent.com/u/9221501?v=3&s=466'}}
-          />
-        <Text>{topic.title}</Text>
-        <Text style={styles.text}>Hello Swiper</Text>
-      </View>
-    )
-  }
-  render() {
-    let topics = this.props.topics;
-    return (
-      <Swiper style={styles.wrapper} showsButtons={true}>
-        
-        <View style={styles.slide}>
-          <View style={styles.container}>
-            <Image
-              style={styles.image}
-              source={{uri: 'https://avatars2.githubusercontent.com/u/9221501?v=3&s=466'}}
-              />
-              <View style={styles.backdropView}>
-                <Text style={styles.text}>Hello Swiper</Text>
-              </View>
-          </View>
-          <View style={styles.container}>
+        <View style={styles.container}>
+          <Image
+            style={styles.image}
+            source={{uri: 'https://avatars2.githubusercontent.com/u/9221501?v=3&s=466'}}
+            />
+            <View style={styles.backdropView}>
+              <Text style={styles.text}>{topic}</Text>
+            </View>
+        </View>
+
+        <View style={styles.container}>
             <Image
               style={styles.image}
               source={{uri: 'https://avatars2.githubusercontent.com/u/9221501?v=3&s=466'}}
@@ -41,8 +29,15 @@ class Home extends Component {
               </View>
           </View>
       </View>
+    )
+  }
+  render() {
+    let topics = this.props.topics;
+    return (
+      <Swiper style={styles.wrapper} showsButtons={true}>
         <View style={styles.slide}>
           <Text style={styles.text}>Beautiful</Text>
+          <Text>{topics[0]}</Text>
         </View>
         <View style={styles.slide}>
           <Text style={styles.text}>And simple</Text>
