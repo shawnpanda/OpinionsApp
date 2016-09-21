@@ -37,7 +37,8 @@ class Home extends Component {
       <Swiper style={styles.wrapper} showsButtons={true}>
         <View style={styles.slide}>
           <Text style={styles.text}>Beautiful</Text>
-          <Text>{topics[0]}</Text>
+          <Text>{topics.getIn([0, 'title'])}</Text>
+          <Text>{topics.getIn([0, 'article1Title'])}</Text>
         </View>
         <View style={styles.slide}>
           <Text style={styles.text}>And simple</Text>

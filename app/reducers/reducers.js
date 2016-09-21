@@ -3,7 +3,7 @@ import { combineReducers } from 'redux'
 import commentReducer from './commentReducers'
 import { Map, Record, List, fromJS } from 'immutable'
 
-const topic = Record({
+const Topic = Record({
     title: "Gun Control",
     article1Title: "Pro Gun Control",
     article1Link: "http://www.latimes.com/opinion/op-ed/la-oe-defilippis-hughes-gun-myths-debunked-20160708-snap-story.html",
@@ -11,11 +11,11 @@ const topic = Record({
     article2: "http://www.baltimoresun.com/news/opinion/editorial/bs-ed-guns-checks-20140219-story.html",
   });
 
-export const topicInitialState = List(
-  new topic
-)
+export const topicInitialState = List([
+  new Topic
+])
 
-function topicReducer(state = topicInitialState.toJS(), action) {
+function topicReducer(state = topicInitialState, action) {
   switch (action.type) {
     default:
       return state
