@@ -4,7 +4,7 @@ import Swiper from 'react-native-swiper';
 
 
 class Home extends Component {
-  // {this.renderSlide("abc",1)}
+        // {this.renderSlide(topics.get(0),1)}
 
   renderSlide(topic, i) {
     return (
@@ -15,7 +15,7 @@ class Home extends Component {
             source={{uri: 'https://avatars2.githubusercontent.com/u/9221501?v=3&s=466'}}
             />
             <View style={styles.backdropView}>
-              <Text style={styles.text}>{topic}</Text>
+              <Text style={styles.text}>{topic.get('article1Title')}</Text>
             </View>
         </View>
 
@@ -25,16 +25,20 @@ class Home extends Component {
               source={{uri: 'https://avatars2.githubusercontent.com/u/9221501?v=3&s=466'}}
               />
               <View style={styles.backdropView}>
-                <Text style={styles.text}>Hello Swiper2</Text>
+                <Text style={styles.text}>{topic.get('article2Title')}</Text>
               </View>
-          </View>
+        </View>
       </View>
     )
   }
   render() {
     let topics = this.props.topics;
+    let self = this;
     return (
       <Swiper style={styles.wrapper} showsButtons={true}>
+        {topics.map(function(topic, i) {
+          return self.renderSlide(topic, i)
+        })}
         <View style={styles.slide}>
           <Text style={styles.text}>Beautiful</Text>
           <Text>{topics.getIn([0, 'title'])}</Text>
